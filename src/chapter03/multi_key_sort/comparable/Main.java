@@ -1,4 +1,4 @@
-package multi_key_sort.comparable;
+package chapter03.multi_key_sort.comparable;
 
 import java.util.ArrayList;
 import java.util.Collections;

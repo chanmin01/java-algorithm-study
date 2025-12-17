@@ -1,6 +1,6 @@
-package multi_key_sort.comparator;
+package chapter03.multi_key_sort.comparator;
 
-import multi_key_sort.comparable.Score;
+import chapter03.multi_key_sort.comparable.Score;
 
 import java.util.Comparator;
 
