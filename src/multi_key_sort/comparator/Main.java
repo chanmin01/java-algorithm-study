@@ -1,4 +1,6 @@
-package comparable;
+package multi_key_sort.comparator;
+
+import multi_key_sort.comparable.Score;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +13,7 @@ public class Main {
         myarr.add(new Score(70, 100));
         myarr.add(new Score(80, 90));
 
-        Collections.sort(myarr);
+        Collections.sort(myarr, new ScoreComparator());
         for (Score s : myarr) {
             System.out.println(s.toString());
         }
