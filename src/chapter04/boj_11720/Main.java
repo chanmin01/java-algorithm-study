@@ -1,4 +1,4 @@
-package chapter04.arrayandlist.boj_11720;
+package chapter04.boj_11720;
 
 import java.io.BufferedReader;
 import java.io.IOException;
