@@ -4,11 +4,9 @@ import java.io.*;
 
 public class Main {
     public static int[] A;
-    public static long result;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
         int N = Integer.parseInt(br.readLine());
         A = new int[N];
         for (int i = 0; i < N; i++) {
@@ -21,7 +19,6 @@ public class Main {
         }
         bw.flush();
         bw.close();
-
     }
 
     private static void Radix_Sort(int[] A, int max_size) {
@@ -41,6 +38,7 @@ public class Main {
                 output[bucket[(A[i] / jarisu % 10)] - 1] = A[i];
                 bucket[(A[i] / jarisu) % 10]--;
             }
+
             for (int i = 0; i < A.length; i++) {
                 A[i] = output[i];
             }
@@ -48,4 +46,5 @@ public class Main {
             count++;
         }
     }
+
 }
