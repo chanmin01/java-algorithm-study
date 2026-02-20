@@ -9,9 +9,10 @@ import java.util.StringTokenizer;
 public class Main {
     static ArrayList<Integer>[] A;
     static boolean[] visited;
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
@@ -22,7 +23,6 @@ public class Main {
             A[i] = new ArrayList<>();
         }
 
-
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
@@ -32,20 +32,19 @@ public class Main {
         }
 
         int count = 0;
-        for (int i = 1; i < N + 1; i++) {
+        for (int i = 1; i <= N; i++) {
             if (!visited[i]) {
                 DFS(i);
                 count++;
             }
         }
+
         System.out.println(count);
 
     }
 
     private static void DFS(int v) {
-        if (visited[v]) {
-            return;
-        }
+        if (visited[v]) return;
         visited[v] = true;
         for (int i : A[v]) {
             if (!visited[i]) {
