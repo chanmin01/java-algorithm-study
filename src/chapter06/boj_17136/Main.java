@@ -1,5 +1,6 @@
 package chapter06.boj_17136;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,6 +22,7 @@ public class Main {
         }
 
         backtracking(0, 0);
+
         if (result == Integer.MAX_VALUE) {
             System.out.println(-1);
         } else {
@@ -29,9 +31,9 @@ public class Main {
 
     }
 
-    private static void backtracking(int xy, int useCnt) {
+    public static void backtracking(int xy, int useCnt) {
         if (xy == 100) {
-            result = Math.min(useCnt, result);
+            result = Math.min(result, useCnt);
             return;
         }
         int x = xy % 10;
@@ -43,7 +45,7 @@ public class Main {
                 if (S[i] > 0 && check(x, y, i)) {
                     S[i]--;
                     fill(x, y, i, 0);
-                    backtracking(xy + i, useCnt + 1);
+                    backtracking(xy + 1, useCnt + 1);
                     S[i]++;
                     fill(x, y, i, 1);
                 }
@@ -61,7 +63,7 @@ public class Main {
         }
     }
 
-    private static boolean check(int x, int y, int size) {
+    public static boolean check(int x, int y, int size) {
         if (x + size > 10 || y + size > 10) {
             return false;
         }
@@ -74,5 +76,6 @@ public class Main {
         }
         return true;
     }
+
 }
 
