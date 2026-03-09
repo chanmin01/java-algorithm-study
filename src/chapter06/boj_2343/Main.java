@@ -10,32 +10,39 @@ public class Main {
         int[] A = new int[N];
         int start = 0;
         int end = 0;
+
         for (int i = 0; i < N; i++) {
             A[i] = sc.nextInt();
             if (start < A[i]) start = A[i];
             end = end + A[i];
         }
+
+
         while (start <= end) {
+
             int middle = (start + end) / 2;
-            int sum = 0;
             int count = 0;
-            for (int i = 0; i < N; i++) {
-                if (sum + A[i] > middle) {
-                    count++;
+            int sum = 0;
+
+            for (int i : A) {
+                if (sum + i > middle) {
                     sum = 0;
+                    count++;
                 }
-                sum = sum + A[i];
+                sum += i;
             }
+
             if (sum != 0) {
                 count++;
             }
+
             if (count > M) {
                 start = middle + 1;
             } else {
                 end = middle - 1;
             }
-
         }
         System.out.println(start);
     }
+
 }
