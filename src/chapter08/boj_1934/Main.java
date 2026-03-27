@@ -5,11 +5,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        for (int i = 0; i < t; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int result = a * b / gcd(a, b);
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i++) {
+            int A = sc.nextInt();
+            int B = sc.nextInt();
+
+            int result = 0;
+            result = A * B / gcd(A, B);
             System.out.println(result);
         }
     }
