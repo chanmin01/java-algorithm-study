@@ -1,20 +1,12 @@
 package chapter03.multi_key_sort.comparable;
 
-public class Score implements Comparable<Score>{
-    private int english;
-    private int math;
+public class Score implements Comparable<Score> {
+    public int english;
+    public int math;
 
     public Score(int english, int math) {
         this.english = english;
         this.math = math;
-    }
-
-    public int getEnglish() {
-        return english;
-    }
-
-    public int getMath() {
-        return math;
     }
 
     @Override

@@ -17,5 +17,6 @@ public class Main {
         for (Score s : myarr) {
             System.out.println(s.toString());
         }
+
     }
 }
