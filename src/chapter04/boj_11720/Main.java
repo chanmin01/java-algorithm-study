@@ -8,16 +8,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        String sNum = br.readLine();
-        int sum = 0;
-
-        char[] cNum = sNum.toCharArray();
-
-        for (char num : cNum) {
-            sum += num - '0';
+        String str = br.readLine();
+        char[] arr = str.toCharArray();
+        long result = 0;
+        for (char c : arr) {
+            result += c - '0';
         }
-
-        System.out.println(sum);
-
+        System.out.println(result);
     }
 }
+
