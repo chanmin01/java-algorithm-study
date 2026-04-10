@@ -1,5 +1,6 @@
 package chapter04.boj_1546.boj_1546_2;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,22 +11,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
+        int[] scores = new int[N + 1];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] A = new int[N];
+        long sum = 0;
         for (int i = 0; i < N; i++) {
-            A[i] = Integer.parseInt(st.nextToken());
+            scores[i] = Integer.parseInt(st.nextToken());
+            sum += scores[i];
         }
-
-        Arrays.sort(A);
-        int Max = A[N - 1];
-        int sum = 0;
-
-        for (int i = 0; i < N; i++) {
-            sum += A[i];
-        }
-
-        double result = (double) sum / Max * 100 / N;
-
+        long maxVal = Arrays.stream(scores).max().getAsInt();
+        double result = (double)sum * 100 / maxVal / N;
         System.out.println(result);
 
     }
