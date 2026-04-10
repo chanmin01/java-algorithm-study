@@ -17,6 +17,7 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
 
         answer = new int[N + 1];
+        visited = new boolean[N + 1];
         A = new ArrayList[N + 1];
         for (int i = 0; i < N + 1; i++) {
             A[i] = new ArrayList<>();
@@ -30,18 +31,18 @@ public class Main {
         }
 
         for (int i = 1; i <= N; i++) {
-            visited = new boolean[N + 1];
+            Arrays.fill(visited, false);
             BFS(i);
         }
 
+        StringBuilder sb = new StringBuilder();
         int maxVal = Arrays.stream(answer).max().getAsInt();
         for (int i = 1; i <= N; i++) {
             if (answer[i] == maxVal) {
-                System.out.print(i + " ");
+                sb.append(i).append(" ");
             }
         }
-
-
+        System.out.print(sb);
 
     }
 
