@@ -1,60 +1,63 @@
 package chapter09.boj_1707;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Main {
     static ArrayList<Integer>[] A;
     static int[] check;
-    static boolean visited[];
-    static boolean IsEven;
+    static int N;
+    static boolean[] visited;
+    static boolean isEven;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        for (int t = 0; t < N; t++) {
-            String[] s = br.readLine().split(" ");
-            int V = Integer.parseInt(s[0]);
-            int E = Integer.parseInt(s[1]);
+        N = Integer.parseInt(br.readLine());
+        for (int i = 0; i < N; i++) {
+            String[] S = br.readLine().split(" ");
+            int V = Integer.parseInt(S[0]);
+            int E = Integer.parseInt(S[1]);
             A = new ArrayList[V + 1];
-            visited = new boolean[V + 1];
+            for (int j = 0; j <= V; j++) {
+                A[j] = new ArrayList<>();
+            }
             check = new int[V + 1];
-            IsEven = true;
-            for (int i = 1; i <= V; i++) {
-                A[i] = new ArrayList<>();
+            visited = new boolean[V + 1];
+            isEven = true;
+            for (int k = 0; k < E; k++) {
+                S = br.readLine().split(" ");
+                int st = Integer.parseInt(S[0]);
+                int ed = Integer.parseInt(S[1]);
+                A[st].add(ed);
+                A[ed].add(st);
             }
-            for (int i = 0; i < E; i++) {
-                s = br.readLine().split(" ");
-                int Start = Integer.parseInt(s[0]);
-                int End = Integer.parseInt(s[1]);
-                A[Start].add(End);
-                A[End].add(Start);
-            }
-
-            for (int i = 1; i <= V; i++) {
-                if (IsEven) {
-                    DFS(i);
+            for (int m = 1; m <= V; m++) {
+                if (isEven) {
+                    DFS(m);
                 } else {
                     break;
                 }
             }
-
-            if (IsEven) {
+            if (isEven) {
                 System.out.println("YES");
+            } else {
                 System.out.println("NO");
             }
         }
     }
 
-    public static void DFS(int node) {
+    private static void DFS(int node) {
         visited[node] = true;
-        for (int i : A[node]) {
-            if (!visited[i]) {
-                check[i] = (check[node] + 1) % 2;
-                DFS(i);
-            } else if (check[node] == check[i]) {
-                IsEven = false;
+        for (int next : A[node]) {
+            if (!visited[next]) {
+                check[next] = (check[node] + 1) % 2;
+                DFS(next);
+            } else {
+                if (check[next] == check[node]) {
+                    isEven = false;
+                }
             }
         }
     }
