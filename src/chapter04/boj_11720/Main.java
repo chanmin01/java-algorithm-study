@@ -1,5 +1,6 @@
 package chapter04.boj_11720;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,13 +9,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        String str = br.readLine();
-        char[] arr = str.toCharArray();
+        String s = br.readLine();
+        char[] c = s.toCharArray();
         long result = 0;
-        for (char c : arr) {
-            result += c - '0';
+
+        for (int i = 0; i < N; i++) {
+            result += c[i] - '0';
         }
         System.out.println(result);
+
     }
 }
 
